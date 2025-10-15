@@ -1,4 +1,4 @@
-LegalMente - Resolución SLD en Python
+# LegalMente - Resolución SLD en Python
 
 Este proyecto implementa un motor de inferencia basado en **Resolución SLD (Selective Linear Definite-clause resolution)** en Python. El objetivo es simular el razonamiento de un sistema experto capaz de responder consultas sobre una base de conocimiento definida mediante cláusulas de Horn.
 
