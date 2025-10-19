@@ -1,4 +1,4 @@
-# LegalMente - Resolución SLD en Python
+# LegalMente(equipo de leyes) - Resolución SLD en Python
 
 Este proyecto implementa un motor de inferencia basado en **Resolución SLD (Selective Linear Definite-clause resolution)** en Python. El objetivo es simular el razonamiento de un sistema experto capaz de responder consultas sobre una base de conocimiento definida mediante cláusulas de Horn.
 
@@ -22,33 +22,45 @@ Para la demostración, hemos seleccionado un subconjunto de reglas y hechos rela
 
 Representan conocimiento fundamental y verdadero en nuestro sistema.
 
-* `requerimiento('expedicion_licencia', 'identificacion_oficial').`
-    * Significa: Para la expedición de licencia se requiere una identificación oficial.
-* `requerimiento('expedicion_licencia', 'comprobante_domicilio').`
-    * Significa: Para la expedición de licencia se requiere un comprobante de domicilio.
-* `requerimiento('expedicion_licencia', 'certificado_medico').`
-    * Significa: Para la expedición de licencia se requiere un certificado médico.
-* `costo('expedicion_licencia', 3, 1077.80).`
-    * Significa: El costo de la expedición de licencia por 3 años es de $1077.80.
-* `lugar('expedicion_licencia', 'Secretaria de Hacienda de Ensenada').`
-    * Significa: El trámite de expedición de licencia se realiza en la Secretaría de Hacienda de Ensenada.
+* Ana es ciudadana
+* Juan es ciudadano
+* Maria es ciudadana
+* Ana necesita reposicionar su tarjeta de circulación
+* Maria necesita revalidar su licencia de conducir
+* Juan necesita expedir su licencia de conducir
+* Expedir la licencia de conducir tiene un precio $1077.80
+* La revalidacion de la tarjeta de conducir tiene un precio $956.57
+* La reposicion de la licencia de conducir tiene un precio de $823.72
+
 
 ### Reglas (Cláusulas de Horn):
 
 Permiten al sistema inferir nuevo conocimiento a partir de los hechos.
 
-1.  **Regla 1: `puede_tramitar(Persona, Tramite)`**
-    * `puede_tramitar(Persona, Tramite) :- cumple_requisitos(Persona, Tramite).`
-    * Significado: Una `Persona` puede realizar un `Tramite` si cumple con todos los requisitos para ese trámite.
+1. **Expedición de licencia de conducir:**
+- Si el ciudadano no cuenta con licencia de conducir y desea conducir, entonces debe tramitar la expedición de una nueva licencia en la Secretaría de Hacienda de Ensenada.
+- Si el ciudadano quiere expedir su licencia de conducir, entonces debe llevar identificación oficial, comprobante de domicilio y certificado médico.
+- Si quieres realizar el trámite, entonces debes pagar y tiene un costo de $1,077.80 MXN. por 3 años
+- Si quieres realizar el trámite, entonces debes pagar y tiene un costo de $1,437.07 MXN. por 5 años.
+ 
 
-2.  **Regla 2: `cumple_requisitos(Persona, Tramite)`**
-    * `cumple_requisitos(Persona, Tramite) :- tiene(Persona, 'identificacion_oficial'), tiene(Persona, 'comprobante_domicilio'), tiene(Persona, 'certificado_medico').`
-    * Significado: Una `Persona` cumple los requisitos para un `Tramite` si tiene los tres documentos necesarios. (Para este ejemplo, asumimos que los requisitos son fijos).
+2. **Revalidación licencia de conducir:**
+- Si el ciudadano quiere revalidar su licencia de conducir, entonces debe llevar la licencia anterior.
+- Si la licencia de conducir está vencida, entonces el ciudadano debe tramitar la revalidación de la licencia en la Secretaría de Hacienda de Ensenada.
+Si quieres realizar el trámite, entonces debes pagar tiene un costo de $956.67 MXN. por 3 años
+Si quieres realizar el trámite, entonces debes pagar tiene un costo de $1,275.57 MXN. por 5 años
+
+3. **Reposición de licencia de conducir:** 
+- Si el ciudadano perdió su licencia o requiere una reposición, entonces debe tramitar la reposición de licencia en la Secretaría de Hacienda de Ensenada.
+- Si un ciudadano solicita la reposición de su licencia, entonces debe presentar una denuncia o reporte de extravío junto con una identificación oficial vigente.
+- Si quieres reposicionar tu licencia de conducir, debes pagar $823.72 MXN.
+
+
 
 ## ¿Cómo Ejecutar el Script?
 
 1.  Asegúrate de tener Python 3 instalado.
-2.  Coloca los archivos `sld_practice.py` y `base_conocimiento.txt` en el mismo directorio.
+2.  Coloca los archivos `sld_practice.py` y `knowledge_base.py` en el mismo directorio.
 3.  Abre una terminal en ese directorio y ejecuta el siguiente comando:
 
 ```bash
