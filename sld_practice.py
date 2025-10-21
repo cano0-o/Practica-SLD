@@ -174,7 +174,7 @@ def sld_solve(kb, query):
 
     for i, (solucion, ruta) in enumerate(solve(KB_LICENCIAS, query_inicial, {}, [])):
         soluciones_encontradas += 1
-        print(f"--- Solución {soluciones_encontradas} ---")
+        print(f"Solución {soluciones_encontradas}")
         
         variables_query = [t for t in query if es_variable(t) and t[0].isupper()] # Solo mostrar vars de usuario
         if not variables_query:
@@ -191,27 +191,27 @@ def sld_solve(kb, query):
         print("-" * (17 + len(str(soluciones_encontradas))))
     
     if soluciones_encontradas == 0:
-        print("--- Resultado: Falso (False) ---")
+        print("Resultado: Falso (False)")
         print("No se encontraron soluciones.")
 
 # --- Ejecución Principal ---
 if __name__ == "__main__":
     
-    print("\n" + "=" * 40 + "\n")
+
     print("   Demostración de Resolución SLD        ")
-    print("\n" + "=" * 40 + "\n")
+
 
     # --- Query 1: ¿Cuánto debe pagar 'ana' por 'reposicion'? ---
     query1 = ('debe_pagar', 'ana', 'reposicion', 'Costo')
     sld_solve(KB_LICENCIAS, query1)
     
-    print("\n" + "=" * 40 + "\n")
+
 
     # --- Query 2: ¿Quién (Persona) necesita 'expedicion'? ---
-    query2 = ('solicita_tramite', 'Persona', 'expedicion')
+    query2 = ('solicita_tramite', 'juan', 'expedicion')
     sld_solve(KB_LICENCIAS, query2)
 
-    print("\n" + "=" * 40 + "\n")
+
     
     # --- Query 3: ¿'pedro' es ciudadano? (Query que falla) ---
     query3 = ('es_ciudadano', 'pedro')
