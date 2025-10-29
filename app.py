@@ -4,7 +4,7 @@ import ast  # Para convertir de forma segura un string a tupla
 import io   # Para capturar la salida de print
 import contextlib # Para redirigir la salida
 
-# Importamos toda la shi de sld_practice y knowledge_base
+# Importamos todo de sld_practice y knowledge_base
 import sld_practice
 import knowledge_base
 

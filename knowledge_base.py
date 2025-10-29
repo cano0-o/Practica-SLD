@@ -2,6 +2,7 @@
 Base de Conocimiento para el sistema de licencias.
 Contiene reglas y hechos relacionados con trámites de licencias.
 """
+
 LICENCIAS = {
     'reglas': [
         {
@@ -20,8 +21,10 @@ LICENCIAS = {
         ('necesita_tramite', 'ana', 'reposicion'),
         ('necesita_tramite', 'juan', 'expedicion'),
         ('necesita_tramite', 'maria', 'revalidacion'),
+        ('necesita_tramite', 'ana', 'nacimiento'),
         ('costo_tramite', 'reposicion', 823.72),
         ('costo_tramite', 'expedicion', 1077.80),
-        ('costo_tramite', 'revalidacion', 956.67)
+        ('costo_tramite', 'revalidacion', 956.67),
+        ('costo_tramite', 'nacimiento', 476.00)
     ]
 }
